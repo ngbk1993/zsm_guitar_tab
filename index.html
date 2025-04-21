@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- TODO List
+1) Add web counter
+2) Add number of lyric/chord
+3) Add a cookie with saveable list locally
+4) Add a button to return back to original chord
+5) Add a button to share link
+6) Add the copy right at the footer
+7) Add Ads? Maybe? or write a mobile app that
+   for easy view and save the song list, and
+   earn the ads from there. (Need to Think)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guitar Chord Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎸 Guitar Chords</h1>
+    <input type="text" id="searchInput" placeholder="Search songs or artists..." />
+
+    <div id="songList"></div>
+
+    <div id="songDisplay" class="hidden">
+      <h2 id="songTitle"></h2>
+      <p id="songArtist"></p>
+
+      <div class="transpose-controls">
+        <button onclick="transpose(-1)">- Transpose</button>
+        <button onclick="transpose(1)">+ Transpose</button>
+      </div>
+
+      <p id="transposeDisplay">Original Key</p>
+
+      <div class="lyric-container">
+        <pre id="songContent"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

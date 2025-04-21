@@ -1,0 +1,161 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 10px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8em;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+#transposeDisplay {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+#songList div {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#songList div:hover {
+  background: #e0f7fa;
+}
+
+#songList {
+  display: none;
+}
+
+#songDisplay {
+  margin-top: 30px;
+}
+
+.transpose-controls {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.transpose-controls button {
+  padding: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  flex: 1 1 auto;
+}
+
+.transpose-controls button:hover {
+  background: #0056b3;
+}
+
+pre {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: monospace;
+  font-size: 0.95em;
+  overflow-x: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .transpose-controls button {
+    font-size: 0.95em;
+    padding: 8px;
+  }
+
+  #songList div {
+    font-size: 0.95em;
+  }
+}
+
+.lyric-container {
+  position: relative;
+  padding: 2em;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-family: monospace;
+  overflow: auto;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 200'%3E%3Ctext x='0' y='100' font-size='22' font-family='monospace' fill='rgba(0,0,0,0.1)' transform='rotate(-30 250 100)'%3Engbk1993.github.io/zsm_guitar_tab%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-position: left 10%;
+}
+
+.lyric-container pre {
+  background-color: transparent; /* 🔥 this is key */
+  position: relative;
+  z-index: 1;
+  white-space: pre-wrap;
+}
+
+/* 🖨️ Ensure background (watermark) shows up when printing */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .lyric-container {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 200'%3E%3Ctext x='-100' y='100' font-size='22' font-family='monospace' fill='rgba(0,0,0,0.1)' transform='rotate(-30 250 100)'%3Engbk1993.github.io/zsm_guitar_tab%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-position: left 10%;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+@media print {
+  #searchInput,
+  .transpose-controls,
+  #songList,
+  #songTitle,
+  #songArtist,
+  #transposeDisplay,
+  h1 {
+    display: none !important;
+  }
+
+  .lyric-container {
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
